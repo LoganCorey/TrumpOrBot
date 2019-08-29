@@ -1,0 +1,23 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/frontend/trump-or-bot/node_modules
+/frontend/trump-or-bot/.pnp
+/frontend/trump-or-bot/.pnp.js
+
+# testing
+/frontend/trump-or-bot/coverage
+
+# production
+/frontend/trump-or-bot/build
+
+# misc
+/frontend/trump-or-bot/.DS_Store
+/frontend/trump-or-bot/.env.local
+/frontend/trump-or-bot/.env.development.local
+/frontend/trump-or-bot/.env.test.local
+/frontend/trump-or-bot/.env.production.local
+
+/frontend/trump-or-bot/npm-debug.log*
+/frontend/trump-or-bot/yarn-debug.log*
+/frontend/trump-or-bot/yarn-error.log*
