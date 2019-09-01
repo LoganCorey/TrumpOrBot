@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "50ddfbbfe46619793152cb08064df471f7be46680515b84d0ce3f3f046b433cf"
+            "sha256": "04de77d3eeb38cb0641c5c259b89d15d0049903e515e6e522395fe4b0ce0a7e8"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -18,9 +18,9 @@
     "default": {
         "absl-py": {
             "hashes": [
-                "sha256:b943d1c567743ed0455878fcd60bc28ac9fae38d129d1ccfad58079da00b8951"
+                "sha256:0ce45920056fbbb66f52fcee7408ba6311da19f55589b2b3aab9f8af92a0e1f2"
             ],
-            "version": "==0.7.1"
+            "version": "==0.8.0"
         },
         "astor": {
             "hashes": [
@@ -142,6 +142,13 @@
             ],
             "version": "==3.1.1"
         },
+        "nltk": {
+            "hashes": [
+                "sha256:bed45551259aa2101381bbdd5df37d44ca2669c5c3dad72439fa459b29137d94"
+            ],
+            "index": "pypi",
+            "version": "==3.4.5"
+        },
         "numpy": {
             "hashes": [
                 "sha256:03f2ebcbffcce2dec8860633b89a93e80c6a239d21a77ae8b241450dc21e8c35",
@@ -205,6 +212,14 @@
                 "sha256:fcff6086c86fb1628d94ea455c7b9de898afc50378042927a59df8065a79a549"
             ],
             "version": "==3.9.1"
+        },
+        "pyspellchecker": {
+            "hashes": [
+                "sha256:31c917e7531a306b16d3b5345f8880421e5aae3ef757d61032ebed5b32feaa14",
+                "sha256:a6e42b3586614955d2c4b34f2d5777d362f1cd420c8371bfc5865f8001a19e3f"
+            ],
+            "index": "pypi",
+            "version": "==0.5.0"
         },
         "python-dateutil": {
             "hashes": [
