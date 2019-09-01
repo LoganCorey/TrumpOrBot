@@ -6,6 +6,7 @@ from keras.layers import LSTM
 from keras.callbacks import ModelCheckpoint
 from keras.utils import np_utils
 from DataShaper import DataShaper
+from SpellChecker import check
 import sys
 class ModelGenerator:
     def __init__(self, dataShaper):
@@ -31,7 +32,7 @@ class ModelGenerator:
         filepath="weights-improvement-{epoch:02d}-{loss:.4f}.hdf5"
         checkpoint = ModelCheckpoint(filepath, monitor='loss', verbose=1, save_best_only=True, mode='min')
         callbacks_list = [checkpoint]
-        model.fit(self.dataShaper.X, self.dataShaper.y, epochs=5, batch_size=200, callbacks=callbacks_list)
+        model.fit(self.dataShaper.X, self.dataShaper.y, epochs=10, batch_size=200, callbacks=callbacks_list)
 
     def generateModelWithWeights(self, weights):
         model = Sequential()
@@ -50,20 +51,23 @@ class ModelGenerator:
         # pick a random seed
         start = numpy.random.randint(0, len(self.dataShaper.dataX)-1)
         pattern = self.dataShaper.dataX[start]
-      
-        print("\"", ''.join([self.dataShaper.int_to_char[value] for value in pattern]), "\"")
+        predictedText= ""
+        originalText= "\"", ''.join([self.dataShaper.int_to_char[value] for value in pattern]), "\""
+       # print("\"", ''.join([self.dataShaper.int_to_char[value] for value in pattern]), "\"")
         # generate characters
-        for i in range(110):
+        
+        for i in range(80):
             x = numpy.reshape(pattern, (1, len(pattern), 1))
             x = x / float(self.dataShaper.n_vocab)
             prediction = model.predict(x, verbose=0)
             index = numpy.argmax(prediction)
             result = self.dataShaper.int_to_char[index]
             seq_in = [self.dataShaper.int_to_char[value] for value in pattern]
-            sys.stdout.write(result)
+            #sys.stdout.write(result)
+            predictedText += result
             pattern.append(index)
             pattern = pattern[1:len(pattern)]
-      
+        return (originalText,predictedText)
 
 
 if __name__ == "__main__":
@@ -71,4 +75,8 @@ if __name__ == "__main__":
     generator = ModelGenerator(shaper)
    # generator.generateLSTMModel()
     model = generator.generateModelWithWeights("weights-improvement-10-1.7093.hdf5")
-    generator.predict(model)
+    original, new= generator.predict(model)
+    print( original)
+    print()
+    print(new)
+    print(check(new))
